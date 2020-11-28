@@ -11,6 +11,7 @@ Unscented_All <- read_excel("Unscented_all.xlsx")
 s <- Scented_All %>%
   arrange(Date) %>%
   filter(Date >= "2017-01-01") %>%
+  filter(CandleID <= 3) %>%
   group_by(Date) %>%
   summarise(Rating=mean(Rating))
 

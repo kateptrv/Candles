@@ -70,10 +70,10 @@ s5 <- Scented_All %>%
   mutate(month = reorder(format(Date, '%B'), Date)) %>%
   group_by(month) %>%
   add_tally() %>%
-  mutate(se = (sd(noscent))/sqrt(n)) %>%
-  summarise(n =n, se=se, noscent = sum(noscent)) %>%
+  summarise(n =n, noscent = sum(noscent)) %>%
   mutate(nsprop = noscent/n) %>%
-  summarise(n=mean(n), se=mean(se), nsprop=mean(nsprop))
+  mutate(se = sqrt((nsprop*(1-nsprop))/n)) %>%
+  summarise(n=mean(n), se=mean(se), nsprop=mean(nsprop)) 
 
 s5r <- ggplot(s5, aes(x=as.factor(month), y = nsprop, group = month))+
   geom_bar(stat = "identity", fill = "lightseagreen")+

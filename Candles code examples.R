@@ -23,7 +23,7 @@ s1720 <- ggplot(s, aes(x = (as.Date(Date)), y = Rating)) +
   theme_light()+
   theme(plot.title = element_text(size=16))+
   scale_x_date(date_labels = "%m-%Y", date_breaks = "6 month")
-
+s1720
 
 #### UNSCENTED CANDLES ####
 
@@ -41,7 +41,7 @@ us1720 <- ggplot(us, aes(x = (as.Date(Date)), y = Rating)) +
   theme_light()+
   theme(plot.title = element_text(size=16))+
   scale_x_date(date_labels = "%m-%Y", date_breaks = "6 month")
-
+us1720
 
 #### NO SCENT FUNCTION ####
 no_scent <- function(x){
